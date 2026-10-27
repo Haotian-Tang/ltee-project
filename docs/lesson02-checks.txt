@@ -1,0 +1,17 @@
+Lesson 02 checks — 2026-10-26
+Template: khan-lab/cbio7501-f26 @ 8c900ab14210187c27cdc8b82adeaf81c9ba45de
+Required folders and folder READMEs: PASS
+README Data section and author identity: COMPLETE
+pixi.toml syntax and author metadata: PASS
+Unrendered Cookiecutter placeholders: NONE
+Raw data and derived outputs: EMPTY (README files only)
+
+Relative-path exercise:
+1. Absolute path before moving the project: PASS (# metadata)
+2. Absolute path after moving the project: FileNotFoundError (expected)
+3. Relative path after moving the project: PASS (# metadata)
+4. Project folder restored and exercise scripts removed: PASS
+
+Lesson 03: download data and create metadata.
+Lesson 04: initialize Git version control.
+Lesson 05: pixi install, pixi.lock and the real reproduce task.
