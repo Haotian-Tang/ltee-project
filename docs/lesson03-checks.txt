@@ -1,0 +1,45 @@
+Lesson 03: Data management and FAIR — 2026-10-27 (Asia/Dubai)
+Scope: LTEE raw-data acquisition, metadata and integrity checks only.
+Lesson source: khan-lab/cbio7501-f26 @ 2de12cc195a8c5c46238f339d063a915c55f8686
+
+Provider MD5 checks: PASS
+ltee_subset: e1294a9201359d4341856bcc735929d3
+rel606_reference: 84ac547b7fa22c6291aa519f2d1ce444
+Provider values rechecked against figshare API and NCBI on 2026-10-27.
+figshare record version: 3; reads license: CC0.
+Initial SHA-256 verification: all 7 raw files match the course values.
+Sample sheet: 3 samples; all 6 paired FASTQ paths exist.
+FASTQ inspection: first record has 4 lines and equal sequence/quality lengths.
+Reference header: >CP000819.1 Escherichia coli B str. REL606, complete genome
+
+Break-it exercise:
+1. Append to protected reference: PermissionError (expected).
+2. After enabling write and appending one byte: checksum mismatch detected (expected).
+data/raw/fastq/SRR2584863_1.trim.sub.fastq: OK
+data/raw/fastq/SRR2584863_2.trim.sub.fastq: OK
+data/raw/fastq/SRR2584866_1.trim.sub.fastq: OK
+data/raw/fastq/SRR2584866_2.trim.sub.fastq: OK
+data/raw/fastq/SRR2589044_1.trim.sub.fastq: OK
+data/raw/fastq/SRR2589044_2.trim.sub.fastq: OK
+data/raw/reference/ecoli_rel606.fasta.gz: FAILED
+3. Repair through the recorded source with scripts/download_data.py:
+rel606_reference: 1 file(s) to fetch
+  downloading https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/017/985/GCA_000017985.1_ASM1798v1/GCA_000017985.1_ASM1798v1_genomic.fna.gz
+  1 of 1 MB
+  1 of 1 MB
+  md5 matches the provider (84ac547b7fa22c6291aa519f2d1ce444)
+OK: all 7 raw files present, sha256 verified, read-only
+4. Repeated download command: verified existing files; nothing downloaded.
+OK: all 7 raw files present, sha256 verified, read-only
+
+Final SHA-256 verification:
+data/raw/fastq/SRR2584863_1.trim.sub.fastq: OK
+data/raw/fastq/SRR2584863_2.trim.sub.fastq: OK
+data/raw/fastq/SRR2584866_1.trim.sub.fastq: OK
+data/raw/fastq/SRR2584866_2.trim.sub.fastq: OK
+data/raw/fastq/SRR2589044_1.trim.sub.fastq: OK
+data/raw/fastq/SRR2589044_2.trim.sub.fastq: OK
+data/raw/reference/ecoli_rel606.fasta.gz: OK
+All 7 raw files are read-only and excluded from Git.
+No project environment installation, pixi.lock, derived data or analysis results added.
+Lesson 03 complete.

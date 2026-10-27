@@ -6,12 +6,18 @@ Author: Haotian Tang
 
 ## Current status
 
-Lesson 02 project scaffold, created on 2026-10-26. Raw data will be downloaded
-in lesson 03. The project environment and `pixi.lock` will be created in
-lesson 05. The `reproduce` task is currently a placeholder; no variant-calling
-analysis has been run yet. Git version control is introduced in lesson 04. The local Git repository was
-initialized for the first GitHub upload on 2026-10-27. CI skips reproduction
-until `pixi.lock` is committed, then uses the locked environment.
+Lesson 03 data management completed on 2026-10-27. The six paired-end FASTQ
+files and the compressed REL606 reference genome are in `data/raw/`, verified
+against provider MD5 and course SHA-256 checksums, and protected as read-only.
+Sources, sample descriptions and checksums are recorded in `metadata/`.
+Run `pixi exec python scripts/download_data.py --verify-only` to verify them,
+or omit `--verify-only` to download or repair the data.
+
+The project environment and `pixi.lock` are reserved for lesson 05. The
+`reproduce` task is still the original placeholder; no variant-calling
+analysis or derived results have been produced. CI skips reproduction until
+`pixi.lock` is committed. Git was initialized for the first GitHub upload on
+2026-10-27; lesson 03 is recorded in its own subsequent commit.
 
 ## Reproduce the results
 
@@ -52,8 +58,26 @@ from the Long-Term Evolution Experiment (population Ara-3, generations 5,000,
 15,000 and 50,000), prepared by Data Carpentry:
 <https://doi.org/10.6084/m9.figshare.7726454> (file `sub.tar.gz`, CC0).
 Reference genome: *E. coli* B str. REL606, GenBank CP000819.1 (NCBI).
-Details, sample sheet and checksums belong in `metadata/` and will be added
-with the scripted downloads in lesson 03.
+Sources, sample sheet, data dictionary and checksums are in `metadata/`.
+Download and verification are automated by `scripts/download_data.py`.
+
+## Data availability
+
+The original reads are available from NCBI SRA BioProject PRJNA295606
+(runs SRR2589044, SRR2584863 and SRR2584866). The trimmed, subsampled reads
+used here are Data Carpentry's `sub.tar.gz` (figshare file 14418248), under
+CC0: <https://doi.org/10.6084/m9.figshare.7726454.v3>.
+The reference is *E. coli* B str. REL606, GenBank CP000819.1, assembly
+GCA_000017985.1, downloaded from NCBI. Exact download URLs and provider MD5
+checksums are in `metadata/sources.tsv`; SHA-256 checksums of the retained
+raw files are in `metadata/checksums.sha256`. Sample information is credited
+to Data Carpentry (CC BY 4.0), as documented in `metadata/README.md`.
+
+Raw files are downloaded locally, kept read-only and excluded from Git.
+Code is available at <https://github.com/Haotian-Tang/ltee-project> under MIT.
+To recreate the raw-data collection, run
+`pixi exec python scripts/download_data.py`. Derived analysis results do not
+yet exist; their regeneration workflow will be implemented in later lessons.
 
 ## How to cite
 
