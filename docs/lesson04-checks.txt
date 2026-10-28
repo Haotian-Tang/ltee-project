@@ -1,0 +1,218 @@
+Lesson 04 Git exercises — 2026-10-28 (Asia/Dubai)
+Lesson: https://khanlab.bio/cbio7501-f26/pages/04-git.html
+Source revision: 66b2a6a68b8fe9e3c3f6a391a92433e8f37caa8c
+Baseline: b97a2a7c143dd0c2f818325aecd9789d36ed97a0
+User request: keep existing history and publish only one lesson 04 commit.
+Practice commits were made in an isolated temporary clone and were not pushed.
+The final documentation changes are copied into the main project.
+
+$ git config user.name Haotian-Tang
+$ git config user.email haotian.tang@mbzuai.ac.ae
+$ git remote remove origin
+$ git status --short --branch
+## main
+$ git check-ignore -v data/raw/fastq/SRR2584863_1.trim.sub.fastq .pixi/envs/default results/vcf/SRR2584863_final_variants.vcf
+.gitignore:6:data/raw/**	data/raw/fastq/SRR2584863_1.trim.sub.fastq
+.gitignore:2:.pixi/*	.pixi/envs/default
+.gitignore:11:results/**	results/vcf/SRR2584863_final_variants.vcf
+Fresh-clone check: data/raw contains README.md only; downloaded data is not in Git.
+$ pixi exec python scripts/download_data.py --verify-only
+FAILED data/raw/fastq/SRR2584863_1.trim.sub.fastq: missing
+FAILED data/raw/fastq/SRR2584863_2.trim.sub.fastq: missing
+FAILED data/raw/fastq/SRR2584866_1.trim.sub.fastq: missing
+FAILED data/raw/fastq/SRR2584866_2.trim.sub.fastq: missing
+FAILED data/raw/fastq/SRR2589044_1.trim.sub.fastq: missing
+FAILED data/raw/fastq/SRR2589044_2.trim.sub.fastq: missing
+FAILED data/raw/reference/ecoli_rel606.fasta.gz: missing
+7 of 7 raw files are missing or changed
+Missing raw files in a new clone: expected verification failure; no data downloaded.
+$ git status --short
+M README.md
+$ git diff -- README.md
+diff --git a/README.md b/README.md
+index ba4d030..38fbd33 100644
+--- a/README.md
++++ b/README.md
+@@ -95,3 +95,5 @@ Template source commit: `8c900ab14210187c27cdc8b82adeaf81c9ba45de`.
+
+ Lesson 02: <https://khanlab.bio/cbio7501-f26/pages/02-project-organization.html>.
+ Local layout and relative-path exercise results: `docs/lesson02-checks.txt`.
++
++Practice project from the Reproducible and Open Science lessons.
+$ git add README.md
+$ git diff
+$ git diff --staged
+diff --git a/README.md b/README.md
+index ba4d030..38fbd33 100644
+--- a/README.md
++++ b/README.md
+@@ -95,3 +95,5 @@ Template source commit: `8c900ab14210187c27cdc8b82adeaf81c9ba45de`.
+
+ Lesson 02: <https://khanlab.bio/cbio7501-f26/pages/02-project-organization.html>.
+ Local layout and relative-path exercise results: `docs/lesson02-checks.txt`.
++
++Practice project from the Reproducible and Open Science lessons.
+$ git commit -m Say what the project is for in the README
+[main 693a640] Say what the project is for in the README
+ 1 file changed, 2 insertions(+)
+$ git status --short
+M metadata/README.md
+?? docs/notes.md
+$ git add docs/notes.md
+$ git restore --staged docs/notes.md
+$ git add metadata/README.md
+$ git commit -m Mention trimming and subsampling in the metadata
+[main 7fad136] Mention trimming and subsampling in the metadata
+ 1 file changed, 2 insertions(+)
+$ git add docs/notes.md
+$ git commit -m Start analysis notes
+[main 36d5968] Start analysis notes
+ 1 file changed, 1 insertion(+)
+ create mode 100644 docs/notes.md
+$ git log --oneline
+36d5968 Start analysis notes
+7fad136 Mention trimming and subsampling in the metadata
+693a640 Say what the project is for in the README
+b97a2a7 Lesson 03: acquire LTEE data and document metadata
+83393de Initialize LTEE project from course template
+$ git show --stat HEAD
+commit 36d59684727fb1828277ff9c5d8dac74bbf3cd64
+Author: Haotian-Tang <haotian.tang@mbzuai.ac.ae>
+Date:   Wed Oct 28 18:19:52 2026 +0400
+
+    Start analysis notes
+
+ docs/notes.md | 1 +
+ 1 file changed, 1 insertion(+)
+$ git log --oneline -- metadata/README.md
+7fad136 Mention trimming and subsampling in the metadata
+b97a2a7 Lesson 03: acquire LTEE data and document metadata
+83393de Initialize LTEE project from course template
+$ git switch -c add-decision-log
+Switched to a new branch 'add-decision-log'
+$ git add docs/decisions.md
+$ git commit -m Start a decision log
+[add-decision-log c7bdbc0] Start a decision log
+ 1 file changed, 3 insertions(+)
+ create mode 100644 docs/decisions.md
+$ git log --oneline --graph --all
+* c7bdbc0 Start a decision log
+* 36d5968 Start analysis notes
+* 7fad136 Mention trimming and subsampling in the metadata
+* 693a640 Say what the project is for in the README
+* b97a2a7 Lesson 03: acquire LTEE data and document metadata
+* 83393de Initialize LTEE project from course template
+$ git switch main
+Switched to branch 'main'
+$ git merge --ff-only add-decision-log
+Updating 36d5968..c7bdbc0
+Fast-forward
+ docs/decisions.md | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 docs/decisions.md
+$ git branch -d add-decision-log
+Deleted branch add-decision-log (was c7bdbc0).
+$ git switch -c depth-5
+Switched to a new branch 'depth-5'
+$ git commit -am Raise minimum depth to 5
+[depth-5 0eb31a2] Raise minimum depth to 5
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git switch main
+Switched to branch 'main'
+$ git switch -c depth-10
+Switched to a new branch 'depth-10'
+$ git commit -am Raise minimum depth to 10
+[depth-10 1c9445d] Raise minimum depth to 10
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git switch main
+Switched to branch 'main'
+$ git merge --ff-only depth-5
+Updating c7bdbc0..0eb31a2
+Fast-forward
+ docs/decisions.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git merge depth-10
+Auto-merging docs/decisions.md
+CONFLICT (content): Merge conflict in docs/decisions.md
+Automatic merge failed; fix conflicts and then commit the result.
+$ git add docs/decisions.md
+$ git commit -m Resolve depth threshold: compare 2 and 10
+[main 431c7dc] Resolve depth threshold: compare 2 and 10
+$ git rev-list --parents -n 1 HEAD
+431c7dcba2d26e3046c7dc07cde472fbd447c7ff 0eb31a243fbff535693217470676ad636d235f74 1c9445d52324a4c72866137ac3ee28e197f8a95c
+$ git log --oneline --graph -5
+*   431c7dc Resolve depth threshold: compare 2 and 10
+|\
+| * 1c9445d Raise minimum depth to 10
+* | 0eb31a2 Raise minimum depth to 5
+|/
+* c7bdbc0 Start a decision log
+* 36d5968 Start analysis notes
+$ git branch -d depth-5 depth-10
+Deleted branch depth-5 (was 0eb31a2).
+Deleted branch depth-10 (was 1c9445d).
+$ git log --oneline -- docs/decisions.md
+431c7dc Resolve depth threshold: compare 2 and 10
+0eb31a2 Raise minimum depth to 5
+1c9445d Raise minimum depth to 10
+c7bdbc0 Start a decision log
+$ git show HEAD~1:docs/decisions.md
+# Decision log
+
+- Variant filter: minimum read depth 5 (Ada: fewer false calls).
+$ git add README.md
+$ git commit -m Say how to get the data in the README
+[main 10e4353] Say how to get the data in the README
+ 1 file changed, 4 insertions(+)
+$ git rm -q scripts/download_data.py metadata/samples.tsv
+$ git commit -m Clean up (oops)
+[main 1d3fd20] Clean up (oops)
+ 2 files changed, 148 deletions(-)
+ delete mode 100644 metadata/samples.tsv
+ delete mode 100644 scripts/download_data.py
+$ git log --oneline -1 -- scripts/download_data.py
+1d3fd20 Clean up (oops)
+$ git restore --source=HEAD~1 scripts/download_data.py metadata/samples.tsv
+$ git status --short
+?? metadata/samples.tsv
+?? scripts/download_data.py
+$ git add scripts/download_data.py metadata/samples.tsv
+$ git commit -m Restore download script and sample sheet
+[main c9b9dea] Restore download script and sample sheet
+ 2 files changed, 148 insertions(+)
+ create mode 100644 metadata/samples.tsv
+ create mode 100644 scripts/download_data.py
+Delete/commit/restore exercise: both files restored byte-for-byte from history.
+$ git status --short --branch
+## main
+$ git log --oneline --graph --all
+* c9b9dea Restore download script and sample sheet
+* 1d3fd20 Clean up (oops)
+* 10e4353 Say how to get the data in the README
+*   431c7dc Resolve depth threshold: compare 2 and 10
+|\
+| * 1c9445d Raise minimum depth to 10
+* | 0eb31a2 Raise minimum depth to 5
+|/
+* c7bdbc0 Start a decision log
+* 36d5968 Start analysis notes
+* 7fad136 Mention trimming and subsampling in the metadata
+* 693a640 Say what the project is for in the README
+* b97a2a7 Lesson 03: acquire LTEE data and document metadata
+* 83393de Initialize LTEE project from course template
+
+Main-project checks before publishing:
+- Existing main baseline: b97a2a7c143dd0c2f818325aecd9789d36ed97a0.
+- Existing commit 83393de and lesson 03 commit b97a2a7 are preserved.
+- Git identity: Haotian-Tang <haotian.tang@mbzuai.ac.ae>.
+- Remote: git@github.com:Haotian-Tang/ltee-project.git.
+- pixi lock completed with Pixi 0.82.1; lock format version 7.
+- Locked platforms: linux-64, osx-64, osx-arm64, win-64.
+- No project environment installed locally; pixi.toml and the placeholder task unchanged.
+- Reproduce workflow restored to require the committed lock file.
+- Workflow YAML parsed successfully; setup-pixi uses locked: true.
+- Raw data, installed environments and generated outputs remain ignored.
+- Planned publication: one pull request, squash merge as one new main commit,
+  followed by the annotated lesson-04 tag.
+- Exact requested commit subject: Creat ltee project by Haotian.
+- pixi.lock SHA-256: bb13dd8b454e44f067f089ed25414f4dc4dbefbd9d374a44f15771b1ccc15350
