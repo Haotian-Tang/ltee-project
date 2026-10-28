@@ -6,18 +6,22 @@ Author: Haotian Tang
 
 ## Current status
 
-Lesson 03 data management completed on 2026-10-27. The six paired-end FASTQ
-files and the compressed REL606 reference genome are in `data/raw/`, verified
-against provider MD5 and course SHA-256 checksums, and protected as read-only.
-Sources, sample descriptions and checksums are recorded in `metadata/`.
-Run `pixi exec python scripts/download_data.py --verify-only` to verify them,
-or omit `--verify-only` to download or repair the data.
+Lesson 04 Git and GitHub work is recorded on 2026-10-28, preserving the
+original lesson 02 and lesson 03 commits. Git staging, history inspection,
+branching, a real merge conflict, and deleted-file restoration were practiced
+in an isolated temporary clone. The actual commands and results are in
+`docs/lesson04-checks.txt`; only one lesson 04 content commit is published.
 
-The project environment and `pixi.lock` are reserved for lesson 05. The
-`reproduce` task is still the original placeholder; no variant-calling
-analysis or derived results have been produced. CI skips reproduction until
-`pixi.lock` is committed. Git was initialized for the first GitHub upload on
-2026-10-27; lesson 03 is recorded in its own subsequent commit.
+`pixi.lock` was generated with `pixi lock`, as required by lesson 04, without
+installing the project environment locally. The Reproduce workflow now
+requires this lock file, creates the locked environment on GitHub, and runs
+the current placeholder `reproduce` task. A green check at this stage verifies
+environment reconstruction, not a working variant-calling analysis.
+The analysis tasks and local environment installation belong to lesson 05.
+
+The lesson 03 raw data remain local, read-only and excluded from Git. Sources,
+samples and checksums are in `metadata/`. Check them with
+`pixi exec python scripts/download_data.py --verify-only`.
 
 ## Reproduce the results
 
@@ -95,3 +99,9 @@ Template source commit: `8c900ab14210187c27cdc8b82adeaf81c9ba45de`.
 
 Lesson 02: <https://khanlab.bio/cbio7501-f26/pages/02-project-organization.html>.
 Local layout and relative-path exercise results: `docs/lesson02-checks.txt`.
+
+Practice project from the Reproducible and Open Science lessons.
+
+## Get the data
+
+    pixi exec python scripts/download_data.py
