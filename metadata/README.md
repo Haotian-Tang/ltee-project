@@ -50,3 +50,5 @@ BioProject PRJNA295606.
   source revision `2de12cc195a8c5c46238f339d063a915c55f8686`.
 - Verification and the checksum corruption/repair exercise are recorded in
   `docs/lesson03-checks.txt`. No derived data or analysis results were created.
+
+The reads were trimmed and subsampled by Data Carpentry.
