@@ -6,18 +6,15 @@ Author: Haotian Tang
 
 ## Current status
 
-Lesson 03 data management completed on 2026-10-27. The six paired-end FASTQ
-files and the compressed REL606 reference genome are in `data/raw/`, verified
-against provider MD5 and course SHA-256 checksums, and protected as read-only.
-Sources, sample descriptions and checksums are recorded in `metadata/`.
-Run `pixi exec python scripts/download_data.py --verify-only` to verify them,
-or omit `--verify-only` to download or repair the data.
+This branch records a real repeat of lesson 04 Git exercises on 2026-11-02.
+Every substantive exercise commit is preserved for instructor inspection.
+See `docs/lesson04-practice-run.md` for the section-by-section map and
+`docs/lesson04-practice-transcript.txt` for the actual command record.
 
-The project environment and `pixi.lock` are reserved for lesson 05. The
-`reproduce` task is still the original placeholder; no variant-calling
-analysis or derived results have been produced. CI skips reproduction until
-`pixi.lock` is committed. Git was initialized for the first GitHub upload on
-2026-10-27; lesson 03 is recorded in its own subsequent commit.
+The original main commit and lesson-04 tag remain unchanged. The new
+practice tag is lesson-04-practice-2026-11-02. Locked dependencies are
+checked by GitHub Actions; reproduce still runs the template placeholder.
+No lesson 05 analysis work or local project environment installation was done.
 
 ## Reproduce the results
 

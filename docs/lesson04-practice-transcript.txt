@@ -1,0 +1,574 @@
+Recorded lesson 04 rerun: actual execution on 2026-11-02 (Asia/Dubai).
+The original main branch and lesson-04 tag are not changed.
+Baseline: b97a2a7c143dd0c2f818325aecd9789d36ed97a0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false --version
+git version 2.56.0
+exit=0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false config --get user.name
+Haotian-Tang
+exit=0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false config --get user.email
+haotian.tang@mbzuai.ac.ae
+exit=0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false status --short --branch
+## lesson-04-practice-history
+?? docs/lesson04-section-audit.md
+exit=0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false remote -v
+origin	git@github.com:Haotian-Tang/ltee-project.git (fetch)
+origin	git@github.com:Haotian-Tang/ltee-project.git (push)
+exit=0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false check-ignore -v data/raw/fastq/SRR2584863_1.trim.sub.fastq .pixi/envs/default results/vcf/SRR2584863_final_variants.vcf
+.gitignore:6:data/raw/**	data/raw/fastq/SRR2584863_1.trim.sub.fastq
+.gitignore:2:.pixi/*	.pixi/envs/default
+.gitignore:11:results/**	results/vcf/SRR2584863_final_variants.vcf
+exit=0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false add docs/lesson04-practice-run.md docs/lesson04-section-audit.md
+exit=0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false diff --cached --check
+exit=0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false commit -m 'Lesson 04 sections 1-2: record Git setup checks'
+[lesson-04-practice-history fa4eed2] Lesson 04 sections 1-2: record Git setup checks
+ 2 files changed, 93 insertions(+)
+ create mode 100644 docs/lesson04-practice-run.md
+ create mode 100644 docs/lesson04-section-audit.md
+exit=0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false rev-parse HEAD
+fa4eed29d7448c56e9d03b82c36688e2a3ff8c4d
+exit=0
+
+Copied the published main pixi.lock as the reproducible starting lock; 347598 bytes, SHA-256 bb13dd8b454e44f067f089ed25414f4dc4dbefbd9d374a44f15771b1ccc15350
+
+[2026-11-02T15:35:24+04:00] $ pixi lock
+✔ Lock-file was already up-to-date
+exit=0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false add pixi.lock
+exit=0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false diff --cached --check
+exit=0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false commit -m 'Lesson 04 section 3: commit the lock file'
+[lesson-04-practice-history 17e7709] Lesson 04 section 3: commit the lock file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 pixi.lock
+exit=0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false rev-parse HEAD
+17e7709074ba7b4413068621933d2ebb7ba0ca75
+exit=0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false status --short
+ M README.md
+exit=0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false diff -- README.md
+diff --git a/README.md b/README.md
+index ba4d030..38fbd33 100644
+--- a/README.md
++++ b/README.md
+@@ -95,3 +95,5 @@ Template source commit: `8c900ab14210187c27cdc8b82adeaf81c9ba45de`.
+
+ Lesson 02: <https://khanlab.bio/cbio7501-f26/pages/02-project-organization.html>.
+ Local layout and relative-path exercise results: `docs/lesson02-checks.txt`.
++
++Practice project from the Reproducible and Open Science lessons.
+exit=0
+
+[2026-11-02T15:35:24+04:00] $ git -c color.ui=false add README.md
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false diff
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false diff --staged
+diff --git a/README.md b/README.md
+index ba4d030..38fbd33 100644
+--- a/README.md
++++ b/README.md
+@@ -95,3 +95,5 @@ Template source commit: `8c900ab14210187c27cdc8b82adeaf81c9ba45de`.
+
+ Lesson 02: <https://khanlab.bio/cbio7501-f26/pages/02-project-organization.html>.
+ Local layout and relative-path exercise results: `docs/lesson02-checks.txt`.
++
++Practice project from the Reproducible and Open Science lessons.
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false diff --cached --check
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false commit -m 'Lesson 04 section 4: explain the project purpose'
+[lesson-04-practice-history c30d0b1] Lesson 04 section 4: explain the project purpose
+ 1 file changed, 2 insertions(+)
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false rev-parse HEAD
+c30d0b12486db57bab044d0a95b51afc2a241071
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false status --short
+ M metadata/README.md
+?? docs/notes.md
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false add metadata/README.md
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false diff --cached --check
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false commit -m 'Lesson 04 section 4: document read preprocessing'
+[lesson-04-practice-history 9e3efc9] Lesson 04 section 4: document read preprocessing
+ 1 file changed, 2 insertions(+)
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false rev-parse HEAD
+9e3efc9da11dc5bcaba19a38374a5b40f4e839fd
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false add docs/notes.md
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false restore --staged docs/notes.md
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false status --short
+?? docs/notes.md
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false add docs/notes.md
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false diff --cached --check
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false commit -m 'Lesson 04 section 4: start analysis notes'
+[lesson-04-practice-history 37b028f] Lesson 04 section 4: start analysis notes
+ 1 file changed, 1 insertion(+)
+ create mode 100644 docs/notes.md
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false rev-parse HEAD
+37b028fb22bf856a970a031a5d80a075d247fdeb
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false log --oneline
+37b028f Lesson 04 section 4: start analysis notes
+9e3efc9 Lesson 04 section 4: document read preprocessing
+c30d0b1 Lesson 04 section 4: explain the project purpose
+17e7709 Lesson 04 section 3: commit the lock file
+fa4eed2 Lesson 04 sections 1-2: record Git setup checks
+b97a2a7 Lesson 03: acquire LTEE data and document metadata
+83393de Initialize LTEE project from course template
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false show --stat HEAD
+commit 37b028fb22bf856a970a031a5d80a075d247fdeb
+Author: Haotian-Tang <haotian.tang@mbzuai.ac.ae>
+Date:   Mon Nov 2 15:35:25 2026 +0400
+
+    Lesson 04 section 4: start analysis notes
+
+ docs/notes.md | 1 +
+ 1 file changed, 1 insertion(+)
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false log --oneline -- metadata/README.md
+9e3efc9 Lesson 04 section 4: document read preprocessing
+b97a2a7 Lesson 03: acquire LTEE data and document metadata
+83393de Initialize LTEE project from course template
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false add docs/lesson04-practice-run.md
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false diff --cached --check
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false commit -m 'Lesson 04 section 5: record history inspection'
+[lesson-04-practice-history 20e4683] Lesson 04 section 5: record history inspection
+ 1 file changed, 5 insertions(+)
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false rev-parse HEAD
+20e4683b0c1b797814400c35c65442ea626e279f
+exit=0
+
+[2026-11-02T15:35:25+04:00] $ git -c color.ui=false push -u origin lesson-04-practice-history
+branch 'lesson-04-practice-history' set up to track 'origin/lesson-04-practice-history'.
+remote:
+remote: Create a pull request for 'lesson-04-practice-history' on GitHub by visiting:
+remote:      https://github.com/Haotian-Tang/ltee-project/pull/new/lesson-04-practice-history
+remote:
+To github.com:Haotian-Tang/ltee-project.git
+ * [new branch]      lesson-04-practice-history -> lesson-04-practice-history
+exit=0
+Section 6: practice branch successfully published over the existing SSH remote.
+
+[2026-11-02T15:35:28+04:00] $ git -c color.ui=false switch -c lesson-04-practice-decisions
+Switched to a new branch 'lesson-04-practice-decisions'
+exit=0
+
+[2026-11-02T15:35:28+04:00] $ git -c color.ui=false add docs/decisions.md
+exit=0
+
+[2026-11-02T15:35:28+04:00] $ git -c color.ui=false diff --cached --check
+exit=0
+
+[2026-11-02T15:35:28+04:00] $ git -c color.ui=false commit -m 'Lesson 04 section 7: start a decision-log branch'
+[lesson-04-practice-decisions 20b57bc] Lesson 04 section 7: start a decision-log branch
+ 1 file changed, 3 insertions(+)
+ create mode 100644 docs/decisions.md
+exit=0
+
+[2026-11-02T15:35:28+04:00] $ git -c color.ui=false rev-parse HEAD
+20b57bcc9f4edd8c583b432a9f25fdde812e85f9
+exit=0
+
+[2026-11-02T15:35:28+04:00] $ git -c color.ui=false switch lesson-04-practice-history
+Your branch is up to date with 'origin/lesson-04-practice-history'.
+Switched to branch 'lesson-04-practice-history'
+exit=0
+
+[2026-11-02T15:35:28+04:00] $ git -c color.ui=false merge --ff-only lesson-04-practice-decisions
+Updating 20e4683..20b57bc
+Fast-forward
+ docs/decisions.md | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 docs/decisions.md
+exit=0
+
+[2026-11-02T15:35:28+04:00] $ git -c color.ui=false branch -d lesson-04-practice-decisions
+Deleted branch lesson-04-practice-decisions (was 20b57bc).
+exit=0
+
+[2026-11-02T15:35:28+04:00] $ git -c color.ui=false switch -c lesson-04-practice-depth-5
+Switched to a new branch 'lesson-04-practice-depth-5'
+exit=0
+
+[2026-11-02T15:35:28+04:00] $ git -c color.ui=false add docs/decisions.md
+exit=0
+
+[2026-11-02T15:35:28+04:00] $ git -c color.ui=false diff --cached --check
+exit=0
+
+[2026-11-02T15:35:28+04:00] $ git -c color.ui=false commit -m 'Lesson 04 section 8: propose minimum depth 5'
+[lesson-04-practice-depth-5 a61c863] Lesson 04 section 8: propose minimum depth 5
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+exit=0
+
+[2026-11-02T15:35:28+04:00] $ git -c color.ui=false rev-parse HEAD
+a61c863956a8c2eae1cd0e76611b08717efde283
+exit=0
+
+[2026-11-02T15:35:28+04:00] $ git -c color.ui=false switch lesson-04-practice-history
+Your branch is ahead of 'origin/lesson-04-practice-history' by 1 commit.
+  (use "git push" to publish your local commits)
+Switched to branch 'lesson-04-practice-history'
+exit=0
+
+[2026-11-02T15:35:28+04:00] $ git -c color.ui=false switch -c lesson-04-practice-depth-10
+Switched to a new branch 'lesson-04-practice-depth-10'
+exit=0
+
+[2026-11-02T15:35:28+04:00] $ git -c color.ui=false add docs/decisions.md
+exit=0
+
+[2026-11-02T15:35:29+04:00] $ git -c color.ui=false diff --cached --check
+exit=0
+
+[2026-11-02T15:35:29+04:00] $ git -c color.ui=false commit -m 'Lesson 04 section 8: propose minimum depth 10'
+[lesson-04-practice-depth-10 679fe8c] Lesson 04 section 8: propose minimum depth 10
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+exit=0
+
+[2026-11-02T15:35:29+04:00] $ git -c color.ui=false rev-parse HEAD
+679fe8c6aebc8867c2311e1afb513c09f1272a46
+exit=0
+
+[2026-11-02T15:35:29+04:00] $ git -c color.ui=false switch lesson-04-practice-history
+Your branch is ahead of 'origin/lesson-04-practice-history' by 1 commit.
+  (use "git push" to publish your local commits)
+Switched to branch 'lesson-04-practice-history'
+exit=0
+
+[2026-11-02T15:35:29+04:00] $ git -c color.ui=false merge --ff-only lesson-04-practice-depth-5
+Updating 20b57bc..a61c863
+Fast-forward
+ docs/decisions.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+exit=0
+
+[2026-11-02T15:35:29+04:00] $ git -c color.ui=false merge lesson-04-practice-depth-10
+Auto-merging docs/decisions.md
+CONFLICT (content): Merge conflict in docs/decisions.md
+Automatic merge failed; fix conflicts and then commit the result.
+exit=1
+
+[2026-11-02T15:35:29+04:00] $ git -c color.ui=false add docs/decisions.md
+exit=0
+
+[2026-11-02T15:35:29+04:00] $ git -c color.ui=false diff --cached --check
+exit=0
+
+[2026-11-02T15:35:29+04:00] $ git -c color.ui=false commit -m 'Lesson 04 section 8: resolve the depth conflict'
+[lesson-04-practice-history 96df606] Lesson 04 section 8: resolve the depth conflict
+exit=0
+
+[2026-11-02T15:35:29+04:00] $ git -c color.ui=false rev-parse HEAD
+96df606ab363927388dbc50d75ed27ce6c036fe7
+exit=0
+
+[2026-11-02T15:35:29+04:00] $ git -c color.ui=false rev-list --parents -n 1 96df606ab363927388dbc50d75ed27ce6c036fe7
+96df606ab363927388dbc50d75ed27ce6c036fe7 a61c863956a8c2eae1cd0e76611b08717efde283 679fe8c6aebc8867c2311e1afb513c09f1272a46
+exit=0
+
+[2026-11-02T15:35:29+04:00] $ git -c color.ui=false log --oneline --graph -6
+*   96df606 Lesson 04 section 8: resolve the depth conflict
+|\
+| * 679fe8c Lesson 04 section 8: propose minimum depth 10
+* | a61c863 Lesson 04 section 8: propose minimum depth 5
+|/
+* 20b57bc Lesson 04 section 7: start a decision-log branch
+* 20e4683 Lesson 04 section 5: record history inspection
+* 37b028f Lesson 04 section 4: start analysis notes
+exit=0
+
+[2026-11-02T15:35:29+04:00] $ git -c color.ui=false branch -d lesson-04-practice-depth-5 lesson-04-practice-depth-10
+Deleted branch lesson-04-practice-depth-5 (was a61c863).
+Deleted branch lesson-04-practice-depth-10 (was 679fe8c).
+exit=0
+
+[2026-11-02T15:35:29+04:00] $ git -c color.ui=false log --oneline -- docs/decisions.md
+96df606 Lesson 04 section 8: resolve the depth conflict
+679fe8c Lesson 04 section 8: propose minimum depth 10
+a61c863 Lesson 04 section 8: propose minimum depth 5
+20b57bc Lesson 04 section 7: start a decision-log branch
+exit=0
+
+[2026-11-02T15:35:29+04:00] $ git -c color.ui=false show 'HEAD~1:docs/decisions.md'
+# Decision log
+
+- Variant filter: minimum read depth 5 (Ada: fewer false calls).
+exit=0
+
+[2026-11-02T15:35:29+04:00] $ git -c color.ui=false push origin lesson-04-practice-history
+To github.com:Haotian-Tang/ltee-project.git
+   20e4683..96df606  lesson-04-practice-history -> lesson-04-practice-history
+exit=0
+
+[2026-11-02T15:35:31+04:00] $ git -c color.ui=false switch -c lesson-04-practice-readme
+Switched to a new branch 'lesson-04-practice-readme'
+exit=0
+
+[2026-11-02T15:35:32+04:00] $ git -c color.ui=false add README.md .github/workflows/reproduce.yml
+exit=0
+
+[2026-11-02T15:35:32+04:00] $ git -c color.ui=false diff --cached --check
+exit=0
+
+[2026-11-02T15:35:32+04:00] $ git -c color.ui=false commit -m 'Lesson 04 section 9: document data access and CI'
+[lesson-04-practice-readme d92d0b7] Lesson 04 section 9: document data access and CI
+ 2 files changed, 5 insertions(+), 9 deletions(-)
+exit=0
+
+[2026-11-02T15:35:32+04:00] $ git -c color.ui=false rev-parse HEAD
+d92d0b7eef35ddde77c8b9673db608c747747fa1
+exit=0
+
+[2026-11-02T15:35:32+04:00] $ git -c color.ui=false push -u origin lesson-04-practice-readme
+branch 'lesson-04-practice-readme' set up to track 'origin/lesson-04-practice-readme'.
+remote:
+remote: Create a pull request for 'lesson-04-practice-readme' on GitHub by visiting:
+remote:      https://github.com/Haotian-Tang/ltee-project/pull/new/lesson-04-practice-readme
+remote:
+To github.com:Haotian-Tang/ltee-project.git
+ * [new branch]      lesson-04-practice-readme -> lesson-04-practice-readme
+exit=0
+Phase 1 complete. Awaiting the real section 9 pull request and its Actions check.
+
+[2026-11-02T15:35:34+04:00] $ git -c color.ui=false rev-parse HEAD
+d92d0b7eef35ddde77c8b9673db608c747747fa1
+exit=0
+
+Try it yourself 2: actual fresh clone from GitHub over SSH.
+
+[2026-11-02T15:36:32+04:00] $ git -c color.ui=false clone --single-branch --branch lesson-04-practice-history git@github.com:Haotian-Tang/ltee-project.git /tmp/ltee04-recorded-d4jj9tqi/github-clone-check
+Cloning into '/tmp/ltee04-recorded-d4jj9tqi/github-clone-check'...
+exit=0
+Confirmed: fresh GitHub clone contains data/raw/README.md only.
+$ pixi exec python scripts/download_data.py --verify-only (in fresh GitHub clone)
+FAILED data/raw/fastq/SRR2584863_1.trim.sub.fastq: missing
+FAILED data/raw/fastq/SRR2584863_2.trim.sub.fastq: missing
+FAILED data/raw/fastq/SRR2584866_1.trim.sub.fastq: missing
+FAILED data/raw/fastq/SRR2584866_2.trim.sub.fastq: missing
+FAILED data/raw/fastq/SRR2589044_1.trim.sub.fastq: missing
+FAILED data/raw/fastq/SRR2589044_2.trim.sub.fastq: missing
+FAILED data/raw/reference/ecoli_rel606.fasta.gz: missing
+7 of 7 raw files are missing or changed
+exit=1
+Expected failure: 7 raw files are absent from the fresh GitHub clone; no raw data downloaded.
+
+[2026-11-02T15:39:27+04:00] $ git -c color.ui=false switch lesson-04-practice-history
+Your branch is up to date with 'origin/lesson-04-practice-history'.
+Switched to branch 'lesson-04-practice-history'
+exit=0
+
+[2026-11-02T15:39:28+04:00] $ git -c color.ui=false pull --ff-only origin lesson-04-practice-history
+Updating 96df606..cb3b8a5
+Fast-forward
+ .github/workflows/reproduce.yml | 10 +---------
+ README.md                       |  4 ++++
+ 2 files changed, 5 insertions(+), 9 deletions(-)
+From github.com:Haotian-Tang/ltee-project
+ * branch            lesson-04-practice-history -> FETCH_HEAD
+   96df606..cb3b8a5  lesson-04-practice-history -> origin/lesson-04-practice-history
+exit=0
+
+[2026-11-02T15:39:30+04:00] $ git -c color.ui=false rev-parse HEAD
+cb3b8a56d1da0a0c1704aa55214450814b3a3e52
+exit=0
+
+[2026-11-02T15:39:30+04:00] $ git -c color.ui=false rev-list --parents -n 1 HEAD
+cb3b8a56d1da0a0c1704aa55214450814b3a3e52 96df606ab363927388dbc50d75ed27ce6c036fe7 d92d0b7eef35ddde77c8b9673db608c747747fa1
+exit=0
+GitHub API evidence: PR #2 was reviewed and merged into lesson-04-practice-history.
+PR: https://github.com/Haotian-Tang/ltee-project/pull/2
+Reproduce check: https://github.com/Haotian-Tang/ltee-project/actions/runs/41438086811 — success.
+Read the job log: pixi install --locked succeeded; the unchanged placeholder task ran; committed files stayed clean.
+
+[2026-11-02T15:39:30+04:00] $ git -c color.ui=false push origin --delete lesson-04-practice-readme
+To github.com:Haotian-Tang/ltee-project.git
+ - [deleted]         lesson-04-practice-readme
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false branch -d lesson-04-practice-readme
+Deleted branch lesson-04-practice-readme (was d92d0b7).
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false show --no-patch lesson-04
+tag lesson-04
+Tagger: Haotian-Tang <haotian.tang@mbzuai.ac.ae>
+Date:   Wed Oct 28 18:24:22 2026 +0400
+
+State of the project after lesson 04
+
+commit c3ade47090d2a0b35de4c099405d5888f5d06f96
+Author: Haotian Tang <144154532+Haotian-Tang@users.noreply.github.com>
+Date:   Wed Oct 28 18:23:43 2026 +0400
+
+    Creat ltee project by Haotian
+
+    Complete lesson 04 Git and GitHub only. Preserve the lesson 02 and lesson 03 history, record Git exercises from an isolated clone, add pixi.lock, and enable the locked Reproduce check.
+
+    GitHub Actions passed. The reproduce task remains a placeholder; lesson 05 analysis work has not been implemented.
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false rev-parse lesson-04
+60904d5506584bf4bde157aeba4cb5e289364644
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false rev-parse main
+c3ade47090d2a0b35de4c099405d5888f5d06f96
+exit=0
+Section 10: original annotated lesson-04 tag verified and preserved.
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false rm -q scripts/download_data.py metadata/samples.tsv
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false diff --cached --check
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false commit -m 'Lesson 04 break-it: commit a practice deletion'
+[lesson-04-practice-history 42e8b0f] Lesson 04 break-it: commit a practice deletion
+ 2 files changed, 148 deletions(-)
+ delete mode 100644 metadata/samples.tsv
+ delete mode 100644 scripts/download_data.py
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false rev-parse HEAD
+42e8b0fa8f2d241f000b154363ba1a1015b87672
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false log --oneline -1 -- scripts/download_data.py
+42e8b0f Lesson 04 break-it: commit a practice deletion
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false restore '--source=HEAD~1' scripts/download_data.py metadata/samples.tsv
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false status --short
+?? metadata/samples.tsv
+?? scripts/download_data.py
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false add scripts/download_data.py metadata/samples.tsv
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false diff --cached --check
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false commit -m 'Lesson 04 break-it: restore the deleted files'
+[lesson-04-practice-history dff69e0] Lesson 04 break-it: restore the deleted files
+ 2 files changed, 148 insertions(+)
+ create mode 100644 metadata/samples.tsv
+ create mode 100644 scripts/download_data.py
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false rev-parse HEAD
+dff69e00cb9fe2b453991cb52cd3a6ad7b0ef7e9
+exit=0
+Restored both files byte-for-byte. The real main working tree was never deleted or altered.
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false log --oneline --graph --all -25
+* dff69e0 Lesson 04 break-it: restore the deleted files
+* 42e8b0f Lesson 04 break-it: commit a practice deletion
+*   cb3b8a5 Lesson 04 section 9: merge the practice pull request
+|\
+| * d92d0b7 Lesson 04 section 9: document data access and CI
+|/
+*   96df606 Lesson 04 section 8: resolve the depth conflict
+|\
+| * 679fe8c Lesson 04 section 8: propose minimum depth 10
+* | a61c863 Lesson 04 section 8: propose minimum depth 5
+|/
+* 20b57bc Lesson 04 section 7: start a decision-log branch
+* 20e4683 Lesson 04 section 5: record history inspection
+* 37b028f Lesson 04 section 4: start analysis notes
+* 9e3efc9 Lesson 04 section 4: document read preprocessing
+* c30d0b1 Lesson 04 section 4: explain the project purpose
+* 17e7709 Lesson 04 section 3: commit the lock file
+* fa4eed2 Lesson 04 sections 1-2: record Git setup checks
+| * c3ade47 Creat ltee project by Haotian
+|/
+* b97a2a7 Lesson 03: acquire LTEE data and document metadata
+* 83393de Initialize LTEE project from course template
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false rev-parse main
+c3ade47090d2a0b35de4c099405d5888f5d06f96
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false rev-parse lesson-04
+60904d5506584bf4bde157aeba4cb5e289364644
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false ls-files data/raw
+data/raw/README.md
+exit=0
+
+[2026-11-02T15:39:33+04:00] $ git -c color.ui=false diff b97a2a7c143dd0c2f818325aecd9789d36ed97a0 -- pixi.toml scripts/download_data.py metadata/samples.tsv
+exit=0
+Final validation: original main and lesson-04 unchanged; exact source files restored; raw data excluded; no local project environment installed.
+This transcript is captured before the final documentation commit and tag push; inspect their actual objects in the published branch history.

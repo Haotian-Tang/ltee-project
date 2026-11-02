@@ -76,3 +76,11 @@ the command/change, its result, and the corresponding real commit or PR.
 Text transcripts should be labelled as transcripts. If an exercise is
 repeated later to publish its actual commits, it must use the real new date
 and be labelled as a repeat; earlier history and timestamps must not be rewritten.
+
+## Published 2026-11-02 repeat
+
+The missing independently inspectable practice commits have now been
+supplemented through a new, explicitly dated rerun on
+`lesson-04-practice-history`. See `docs/lesson04-practice-run.md` for
+the full section map, actual commit links, merged PR #2 and checks.
+The original main history and lesson-04 tag were retained.
