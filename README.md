@@ -6,18 +6,18 @@ Author: Haotian Tang
 
 ## Current status
 
-Lesson 03 data management completed on 2026-10-27. The six paired-end FASTQ
-files and the compressed REL606 reference genome are in `data/raw/`, verified
-against provider MD5 and course SHA-256 checksums, and protected as read-only.
-Sources, sample descriptions and checksums are recorded in `metadata/`.
-Run `pixi exec python scripts/download_data.py --verify-only` to verify them,
-or omit `--verify-only` to download or repair the data.
+The three LTEE samples and the REL606 reference have recorded sources,
+sample metadata and checksums in `metadata/`. Raw files are downloaded locally,
+kept read-only and excluded from Git.
 
-The project environment and `pixi.lock` are reserved for lesson 05. The
-`reproduce` task is still the original placeholder; no variant-calling
-analysis or derived results have been produced. CI skips reproduction until
-`pixi.lock` is committed. Git was initialized for the first GitHub upload on
-2026-10-27; lesson 03 is recorded in its own subsequent commit.
+Exact dependency versions are recorded in `pixi.lock`. GitHub Actions installs
+the locked environment and checks that the current task leaves tracked files
+unchanged. The `reproduce` task is still a placeholder; variant calling and
+derived results have not been implemented yet.
+
+Use the download command below to fetch the data, or add `--verify-only` to
+check an existing download. Project decisions and review notes are in
+`docs/decisions.md` and `docs/notes.md`.
 
 ## Reproduce the results
 
@@ -95,3 +95,9 @@ Template source commit: `8c900ab14210187c27cdc8b82adeaf81c9ba45de`.
 
 Lesson 02: <https://khanlab.bio/cbio7501-f26/pages/02-project-organization.html>.
 Local layout and relative-path exercise results: `docs/lesson02-checks.txt`.
+
+Practice project from the Reproducible and Open Science lessons.
+
+## Get the data
+
+    pixi exec python scripts/download_data.py
