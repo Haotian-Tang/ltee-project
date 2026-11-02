@@ -13,3 +13,8 @@ commit `c3ade47` and original annotated `lesson-04` tag are preserved.
 Checked the existing Git version, author identity, repository status,
 SSH remote and ignore rules. Existing repository initialization was
 reused; it was not deleted or recreated.
+
+## Section 5
+
+Inspected the full commit list, the latest commit summary and the
+history of metadata/README.md with git log and git show.
