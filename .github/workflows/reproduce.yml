@@ -19,28 +19,20 @@ jobs:
       - name: Fresh clone
         uses: actions/checkout@v7
 
-      # Lesson 02 creates the scaffold; lesson 05 creates pixi.lock.
-      - name: Explain pending environment setup
-        if: ${{ hashFiles('pixi.lock') == '' }}
-        run: echo "::notice::Project scaffold only. Reproduction starts after pixi.lock is committed in lesson 05."
-
       - name: Install Pixi and the locked environment
-        if: ${{ hashFiles('pixi.lock') != '' }}
         uses: prefix-dev/setup-pixi@v0.11.2
         with:
           pixi-version: v0.83.0
           locked: true   # fail if pixi.lock does not match pixi.toml
 
       - name: Rebuild every result from raw data
-        if: ${{ hashFiles('pixi.lock') != '' }}
         run: pixi run reproduce
 
       - name: Committed files must not change when the analysis runs
-        if: ${{ hashFiles('pixi.lock') != '' }}
         run: git status --porcelain && git diff --exit-code
 
       - name: Keep the results for 7 days
-        if: ${{ always() && hashFiles('pixi.lock') != '' }}
+        if: always()
         uses: actions/upload-artifact@v7
         with:
           name: results

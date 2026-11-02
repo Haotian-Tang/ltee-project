@@ -97,3 +97,7 @@ Lesson 02: <https://khanlab.bio/cbio7501-f26/pages/02-project-organization.html>
 Local layout and relative-path exercise results: `docs/lesson02-checks.txt`.
 
 Practice project from the Reproducible and Open Science lessons.
+
+## Get the data
+
+    pixi exec python scripts/download_data.py
