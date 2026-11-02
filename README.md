@@ -95,3 +95,5 @@ Template source commit: `8c900ab14210187c27cdc8b82adeaf81c9ba45de`.
 
 Lesson 02: <https://khanlab.bio/cbio7501-f26/pages/02-project-organization.html>.
 Local layout and relative-path exercise results: `docs/lesson02-checks.txt`.
+
+Practice project from the Reproducible and Open Science lessons.
