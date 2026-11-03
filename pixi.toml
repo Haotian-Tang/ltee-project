@@ -22,3 +22,16 @@ check = { cmd = "python --version && quarto --version", description = "Check tha
 # `reproduce` must rebuild every result from the raw data with one command.
 # The lessons replace this placeholder with real steps.
 reproduce = { cmd = "python -c \"print('Nothing to reproduce yet: add your steps to the reproduce task in pixi.toml')\"", description = "Rebuild all results from raw data" }
+
+[feature.pipeline]
+platforms = ["linux-64", "osx-arm64", "osx-64"]
+
+[feature.pipeline.dependencies]
+fastqc = ">=0.13.0,<0.14"
+multiqc = ">=1.35,<2"
+bwa = ">=0.7.19,<0.8"
+samtools = ">=1.25,<2"
+bcftools = ">=1.25,<2"
+
+[environments]
+pipeline = ["pipeline"]
