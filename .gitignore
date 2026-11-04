@@ -32,3 +32,7 @@ reports/*_files/
 __pycache__/
 .DS_Store
 Thumbs.db
+
+# Temporary Conda environments recreated from envs/
+/conda-env/
+/wrong-env/
