@@ -57,3 +57,43 @@ errors. No additional trimming or filtering of the raw reads was performed.
 The optional HPC exercise and neighbor swap were not performed. The GitHub
 Reproduce workflow is the fresh-Linux-clone check for this project. Downloaded
 data, installed environments and generated results stay outside Git.
+
+## 2026-11-04 — Conda and Pixi interchange
+
+Completed [lesson 5b](https://khanlab.bio/cbio7501-f26/pages/05b-conda-comparison.html),
+source revision `7126d008236e54f0add5da879f129ec59aec32d4`, in three parts:
+importing an example, exporting the pipeline, and checking compatibility.
+
+The separate `conda-comparison/from-conda` workspace imported the example
+with Python 3.13 and samtools/bcftools 1.24. Channel order and the 1.24 version
+constraints were retained, a lock was generated, and both tools ran at 1.24.
+The project's existing pipeline was not downgraded.
+
+The range-based `envs/pipeline.yml` was built with micromamba 2.10.0.
+Samtools and FastQC ran successfully using `micromamba run`:
+
+| Check | Observed result |
+| --- | --- |
+| Conda samtools | samtools 1.25 |
+| Conda FastQC | FastQC v0.13.0 |
+| Conda Python | Python 3.13.18 |
+| Conda Quarto, solved from ranges | 1.11.9 |
+| Existing Pixi Quarto, from the lock | 1.11.9 |
+
+Both the Conda copy and the existing locked pipeline environment reported
+Quarto 1.11.9. This match does not make the range-based YAML an exact spec;
+a future solve may select other permitted versions or builds. The default
+Pixi environment separately locks Quarto 1.9.38, which is the value recorded
+in the lesson 5 default-tool check. The three explicit exports contain the
+exact locked pipeline URLs and matching checksums: 321 packages for linux-64,
+and 265 each for osx-arm64 and osx-64.
+
+For the wrong-platform exercise, Linux packages installed into `wrong-env`
+on this Apple-silicon Mac, but running samtools failed with `cannot execute
+binary file`, as expected. The native Conda copy, the wrong-platform copy
+and this lesson's dedicated micromamba cache were removed afterwards.
+The imported Pixi practice workspace remains available separately.
+
+The project manifest, lock and pipeline/download scripts were checked against
+the lesson 5 baseline and are unchanged. No data analysis was added or rerun
+locally for this comparison. Installed environments are not committed.

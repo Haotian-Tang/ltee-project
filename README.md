@@ -31,6 +31,22 @@ pixi run reproduce            # verify data, run QC, align and call variants
 `pixi run reproduce` must work on a fresh clone of this repository. A GitHub
 Action (`.github/workflows/reproduce.yml`) checks that on every push.
 
+## Conda and Mamba users
+
+The pipeline environment is also exported for collaborators without Pixi:
+
+```bash
+conda env create -p ./conda-env -f envs/pipeline.yml
+conda run -p ./conda-env samtools --version
+conda run -p ./conda-env fastqc --version
+```
+
+`envs/pipeline.yml` carries version ranges and is solved again when built.
+For exact packages, choose the file in `envs/explicit/` matching your Linux or
+macOS platform. See `envs/README.md` for the import example, export commands
+and platform limitations. The export contains packages, not Pixi task definitions.
+`pixi.toml` and `pixi.lock` remain the project's primary environment record.
+
 ## Available tasks
 
 | Command | Purpose |
