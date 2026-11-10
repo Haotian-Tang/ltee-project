@@ -6,10 +6,11 @@ Author: Haotian Tang
 
 ## Current status
 
-Lesson 05 provides a working Pixi task pipeline for the three LTEE samples.
+Lessons 05–06 provide a Pixi pipeline and Jupyter exploration for the three LTEE samples.
 `pixi run reproduce` verifies the raw data, runs FastQC and MultiQC, aligns
 the reads, and calls and filters variants at the course default minimum
-read depth of 2. Raw data remain read-only and generated files are excluded
+read depth of 2. It also executes the read-exploration notebook on a fresh
+kernel and exports HTML. Raw data remain read-only and generated files are excluded
 from Git.
 
 The `default` environment supports Linux, macOS and Windows. The `pipeline`
@@ -55,7 +56,8 @@ and platform limitations. The export contains packages, not Pixi task definition
 | `pixi run download` | Download or verify the seven raw files |
 | `pixi run qc` | FastQC for six FASTQ files and a MultiQC summary |
 | `pixi run variant-calling` | Align reads, call haploid variants and apply the depth filter |
-| `pixi run reproduce` | Run QC and variant calling after data verification |
+| `pixi run notebook` | Execute read exploration and export HTML on a fresh kernel |
+| `pixi run reproduce` | Run QC, variant calling and notebook exploration |
 
 The tasks select their environment automatically. To run a pipeline tool
 directly, use `pixi run -e pipeline TOOL`.
@@ -63,6 +65,7 @@ directly, use `pixi run -e pipeline TOOL`.
 ## Generated outputs
 
 - `results/qc/multiqc/multiqc_report.html`: combined QC report.
+- `results/notebooks/explore-reads.html`: executed notebook with tables and histogram.
 - `results/bam/`: sorted alignments and indexes.
 - `results/vcf/`: filtered variants for each sample.
 - `results/stats/`: alignment and variant statistics.
