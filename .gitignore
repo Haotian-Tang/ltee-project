@@ -24,6 +24,8 @@ work/
 # Quarto and Jupyter
 /.quarto/
 reports/*.html
+reports/*.pdf
+reports/*.docx
 reports/*_files/
 **/*.quarto_ipynb
 .ipynb_checkpoints/
