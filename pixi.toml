@@ -19,10 +19,11 @@ papermill = ">=2.6"   # Quarto needs it for report parameters (-P)
 
 [tasks]
 check = { cmd = "python --version && quarto --version", description = "Check that the tools work" }
-# Rebuild QC, variants and notebook exploration after data verification.
+# Rebuild QC, variants, notebook exploration and the report.
 download = { cmd = "python scripts/download_data.py", description = "Download the raw data and verify checksums" }
 notebook = { cmd = "jupyter nbconvert --execute --to html --output-dir results/notebooks notebooks/explore-reads.ipynb", depends-on = ["download"], description = "Run read exploration on a fresh kernel" }
-reproduce = [{ task = "qc" }, { task = "variant-calling" }, { task = "notebook" }]
+report = { cmd = "quarto render reports/ltee-report.qmd --to html", depends-on = ["download"], description = "Render the Quarto report" }
+reproduce = [{ task = "qc" }, { task = "variant-calling" }, { task = "notebook" }, { task = "report" }]
 
 [feature.pipeline]
 platforms = ["linux-64", "osx-arm64", "osx-64"]
