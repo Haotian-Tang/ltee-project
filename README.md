@@ -33,6 +33,21 @@ pixi run reproduce            # verify data, run QC, align and call variants
 `pixi run reproduce` must work on a fresh clone of this repository. A GitHub
 Action (`.github/workflows/reproduce.yml`) checks that on every push.
 
+## Container
+
+```bash
+docker build --platform linux/amd64 -f containers/Dockerfile \
+  --build-arg ENV_NAME=pipeline -t ltee-project:0.1.0 .
+docker run --rm --platform linux/amd64 -v "$PWD":/work -w /work \
+  ltee-project:0.1.0 bash scripts/run_variant_calling.sh
+```
+
+Tested registry digest: `ghcr.io/haotian-tang/ltee-project@sha256:03103b20d4f2654546047e2f6eb5724349f6d3d31f51c32ad2a4b816d8207301`.
+Container and native variant identities match (25, 775, 10 for SRR2584863,
+SRR2584866, SRR2589044). See `containers/README.md` and `containers/provenance.json`
+for the archive, checks and optional Apptainer commands. Container CI builds
+and tests the locked image on every push and pull request.
+
 ## Conda and Mamba users
 
 The pipeline environment is also exported for collaborators without Pixi:

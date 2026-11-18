@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-18",
+  "environment": "pipeline",
+  "platform": "linux/amd64",
+  "local_image_id": "sha256:266be5d1d8c4cbfdf622551279fe9511efbbf6190f3db7fee24400acb5e2981e",
+  "registry_image": "ghcr.io/haotian-tang/ltee-project@sha256:03103b20d4f2654546047e2f6eb5724349f6d3d31f51c32ad2a4b816d8207301",
+  "registry_source_commit": "40cfd5df49815b3af17fd1bfeaa1ec3017f5b12c",
+  "pixi_lock_sha256": "7b828be01aed93120360bd65edce18d739ddb3d14e76444da0c142761ba9c817",
+  "archive": {
+    "path": "containers/ltee-project_0.1.0.tar.gz",
+    "bytes": 1068237811,
+    "sha256": "3f5721439b317bf154ca8993236100adcefcf40e87b637e669c6d6d7f46f95e5"
+  },
+  "versions": {
+    "samtools": "samtools 1.25",
+    "bcftools": "bcftools 1.25",
+    "fastqc": "FastQC v0.13.0",
+    "bwa": "0.7.19-r1273"
+  },
+  "variant_identities_match_baseline": "4d89c4544292922f5a11d7582b0c2782009b72b3"
+}

@@ -1,10 +1,10 @@
 # Apptainer image of this project, made from the Docker image (lesson 08).
 # Build on Linux (or WSL2, or the cluster) after pushing the Docker image:
-#   apptainer build containers/PROJECT.sif containers/apptainer.def
+#   apptainer build containers/ltee-project.sif containers/apptainer.def
 # Or straight from a local Docker image, without this file:
-#   apptainer build containers/PROJECT.sif docker-daemon://PROJECT:0.1.0
+#   apptainer build containers/ltee-project.sif docker-daemon://ltee-project:0.1.0
 Bootstrap: docker
-From: ghcr.io/Haotian-Tang/ltee-project:0.1.0
+From: ghcr.io/haotian-tang/ltee-project@sha256:03103b20d4f2654546047e2f6eb5724349f6d3d31f51c32ad2a4b816d8207301
 
 %runscript
     exec /entrypoint.sh "$@"

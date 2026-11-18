@@ -1,0 +1,81 @@
+name: Container
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: container-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  container:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Build the locked pipeline image
+        run: |
+          docker build --provenance=false --platform linux/amd64 -f containers/Dockerfile \
+            --build-arg ENV_NAME=pipeline -t ltee-project:0.1.0 .
+
+      - name: Check tools and the missing-mount failure
+        run: |
+          docker run --rm --platform linux/amd64 ltee-project:0.1.0 samtools --version
+          docker run --rm --platform linux/amd64 ltee-project:0.1.0 fastqc --version
+          if docker run --rm --platform linux/amd64 ltee-project:0.1.0 \
+            bash scripts/run_variant_calling.sh > "$RUNNER_TEMP/missing-mount.log" 2>&1; then
+            echo "Expected the unmounted project to be unavailable"
+            exit 1
+          fi
+          grep -F 'No such file or directory' "$RUNNER_TEMP/missing-mount.log"
+
+      - name: Download and verify raw data
+        run: python3 scripts/download_data.py
+
+      - name: Run the pipeline and compare variant identities
+        run: |
+          docker run --rm --platform linux/amd64 --user "$(id -u):$(id -g)" \
+            -v "$PWD":/work -w /work ltee-project:0.1.0 \
+            bash scripts/run_variant_calling.sh 2 results/container
+          python3 scripts/check_container_results.py results/container/vcf
+          docker image inspect ltee-project:0.1.0 --format '{{.Id}}' > results/container/image-id.txt
+
+      - name: Check committed files
+        run: git diff --exit-code
+
+      - name: Publish tested images to GHCR
+        if: github.event_name == 'push' && github.repository == 'Haotian-Tang/ltee-project'
+        env:
+          REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          image="ghcr.io/${GITHUB_REPOSITORY,,}"
+          sha_tag="sha-${GITHUB_SHA}"
+          printf '%s' "$REGISTRY_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+          docker tag ltee-project:0.1.0 "$image:$sha_tag"
+          docker push "$image:$sha_tag"
+          # Keep the first tested release image; use a new version for future releases.
+          if ! docker manifest inspect "$image:0.1.0" > /dev/null 2>&1; then
+            docker tag ltee-project:0.1.0 "$image:0.1.0"
+            docker push "$image:0.1.0"
+          fi
+          docker image inspect "$image:$sha_tag" \
+            --format '{{range .RepoDigests}}{{println .}}{{end}}' > results/container/registry-digests.txt
+          docker logout ghcr.io
+
+      - name: Keep container results for 7 days
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: container-results
+          path: results/container/
+          if-no-files-found: ignore
+          retention-days: 7
