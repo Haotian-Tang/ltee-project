@@ -12,6 +12,7 @@ pixi run python scripts/compare_vcfs.py results/shell-script/vcf results/vcf
 QC, reference preparation, alignment, calling, filtering and depth sensitivity.
 Large SAM, unsorted BAM and raw BCF intermediates are temporary; logs are in
 `results/logs/`. DAG and rule graphs are generated under `results/`.
+After a fresh install, run `pixi run -e pipeline dot -c` before drawing SVGs.
 
 Checked 2026-11-18: full VCF records match the shell (25, 775, 10 variants).
 Changing minimum depth to 10 plans only three filters, three statistics jobs
@@ -23,3 +24,7 @@ The optional Slurm exercise was not run; no cluster account was configured.
 
 From [CBIO7501 lesson 09](https://khanlab.bio/cbio7501-f26/pages/09-snakemake.html);
 Data Carpentry attribution is retained in the Snakefile.
+
+`pixi run run-snakemake` verifies raw data and runs the workflow;
+`pixi run reproduce` then renders the report. `pixi run compare-to-shell`
+regenerates the shell baseline separately and compares every VCF record.
