@@ -11,15 +11,16 @@
 #
 # Build from the project folder (lesson 08):
 #   docker build --platform linux/amd64 -f containers/Dockerfile \
-#     --build-arg ENV_NAME=default -t PROJECT:0.1.0 .
+#     --build-arg ENV_NAME=pipeline -t ltee-project:0.1.0 .
 # Run a command with the project folder mounted at /work:
-#   docker run --rm -v "$PWD":/work -w /work PROJECT:0.1.0 python --version
+#   docker run --rm -v "$PWD":/work -w /work ltee-project:0.1.0 python --version
 
-ARG PIXI_VERSION=0.83.0
+ARG PIXI_IMAGE=ghcr.io/prefix-dev/pixi:0.83.0@sha256:3dce86c6e87371c58035aa41b09f2b56ca8f011722320551e0c2bfc1c59da5fb
+ARG UBUNTU_IMAGE=ubuntu:24.04@sha256:73b999393d07f2bf65a40373778a44dc9a6d54ad7718d29247d8ff9413c4d6a8
 
-FROM ghcr.io/prefix-dev/pixi:${PIXI_VERSION} AS build
+FROM ${PIXI_IMAGE} AS build
 # Which Pixi environment to put in the image (see [environments] in pixi.toml)
-ARG ENV_NAME=default
+ARG ENV_NAME=pipeline
 WORKDIR /opt/project
 COPY pixi.toml pixi.lock ./
 # --locked: fail if pixi.lock does not match pixi.toml
@@ -30,8 +31,9 @@ RUN pixi shell-hook --environment ${ENV_NAME} --shell bash > /shell-hook.sh \
  && cat /shell-hook.sh >> /entrypoint.sh \
  && printf 'exec "$@"\n' >> /entrypoint.sh
 
-FROM ubuntu:24.04 AS production
-ARG ENV_NAME=default
+FROM ${UBUNTU_IMAGE} AS production
+ARG ENV_NAME=pipeline
+LABEL org.opencontainers.image.source="https://github.com/Haotian-Tang/ltee-project"
 LABEL org.opencontainers.image.description="Software environment '${ENV_NAME}' of this project, built from pixi.lock"
 # The environment must keep the same path (prefix) as in the build stage:
 # environments cannot be moved.
