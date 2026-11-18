@@ -9,6 +9,9 @@ dependencies:
 - bwa >=0.7.19,<0.8
 - samtools >=1.25,<2
 - bcftools >=1.25,<2
+- snakemake >=9.27.2,<10
+- graphviz >=14.1.2,<15
+- snakefmt >=2.1.0,<3
 - python 3.13.*
 - quarto >=1.9
 - jupyterlab >=4
@@ -16,3 +19,4 @@ dependencies:
 - pandas >=2
 - matplotlib >=3.9
 - papermill >=2.6
+- pyyaml >=6.0.3,<7

@@ -16,6 +16,7 @@ ipykernel = ">=7"
 pandas = ">=2"
 matplotlib = ">=3.9"
 papermill = ">=2.6"   # Quarto needs it for report parameters (-P)
+pyyaml = ">=6.0.3,<7"
 
 [tasks]
 check = { cmd = "python --version && quarto --version", description = "Check that the tools work" }
@@ -34,6 +35,9 @@ multiqc = ">=1.35,<2"
 bwa = ">=0.7.19,<0.8"
 samtools = ">=1.25,<2"
 bcftools = ">=1.25,<2"
+snakemake = ">=9.27.2,<10"
+graphviz = ">=14.1.2,<15"
+snakefmt = ">=2.1.0,<3"
 
 [feature.pipeline.tasks]
 qc = { cmd = "mkdir -p results/qc/fastqc && fastqc --quiet --threads 2 --outdir results/qc/fastqc data/raw/fastq/*.fastq && multiqc --force -o results/qc/multiqc results/qc/fastqc", depends-on = ["download"], description = "FastQC on each FASTQ file, then a MultiQC summary" }
