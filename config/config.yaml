@@ -1,4 +1,4 @@
-# Settings for the Snakemake version of the LTEE pipeline.
+# Settings shared by the Snakemake and Nextflow LTEE workflows.
 samples: metadata/samples.tsv
 reference_gz: data/raw/reference/ecoli_rel606.fasta.gz
 

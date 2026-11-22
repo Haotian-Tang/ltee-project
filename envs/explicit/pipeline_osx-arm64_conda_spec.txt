@@ -167,6 +167,10 @@ https://conda.anaconda.org/conda-forge/noarch/aiosignal-1.4.0-pyhd8ed1ab_0.conda
 https://conda.anaconda.org/conda-forge/noarch/aiohappyeyeballs-2.7.1-pyhd8ed1ab_0.conda#e51e09bf3b91c62b7461a9f94e92c2c9
 https://conda.anaconda.org/conda-forge/osx-arm64/aiohttp-3.14.5-py313h996ddf1_0.conda#083df78be7b48e4762f4984adb3c628c
 https://conda.anaconda.org/conda-forge/noarch/papermill-2.7.0-pyhd8ed1ab_0.conda#ca833247b8b88d1d15eb57d031467795
+https://conda.anaconda.org/conda-forge/osx-arm64/openjdk-25.0.2-hff8554d_26.conda#2f6b81bc2c67823ae56fe071291f9a70
+https://conda.anaconda.org/conda-forge/osx-arm64/curl-8.23.0-h6651222_0.conda#de96eb952f8c91d2b5161eb55f9a24f0
+https://conda.anaconda.org/conda-forge/osx-arm64/coreutils-9.12-h74c22ad_0.conda#d6c76e78c52657adc50151e0af762a71
+https://conda.anaconda.org/bioconda/noarch/nextflow-26.10.6-h2a3209d_0.conda#e50a0a6e1a22ddfb7086add971eed6cf
 https://conda.anaconda.org/conda-forge/noarch/typeguard-4.6.0-pyhcf101f3_0.conda#a61716f1640d9986d5d6de1c4d140b42
 https://conda.anaconda.org/conda-forge/osx-arm64/regex-2026.9.29-py313ha083069_0.conda#3b572e6213804ba8d3975c13e1e96859
 https://conda.anaconda.org/conda-forge/osx-arm64/tiktoken-0.14.0-py313h20db699_0.conda#6afd6ba9a8ef1f8bea93c41d4f93abee
@@ -330,7 +334,6 @@ https://conda.anaconda.org/conda-forge/osx-arm64/xz-tools-5.8.3-h8088a28_1.conda
 https://conda.anaconda.org/conda-forge/osx-arm64/xz-gpl-tools-5.8.3-hd0f0c4f_1.conda#787cabcdc011595e8c66af8ca4333a49
 https://conda.anaconda.org/conda-forge/osx-arm64/liblzma-devel-5.8.3-h8088a28_1.conda#2f003d60c66aa780d26c5aec7ee1c94d
 https://conda.anaconda.org/conda-forge/osx-arm64/xz-5.8.3-hd0f0c4f_1.conda#6a20980b26ab5768ba04beb4d8706b9d
-https://conda.anaconda.org/conda-forge/osx-arm64/openjdk-25.0.2-hff8554d_26.conda#2f6b81bc2c67823ae56fe071291f9a70
 https://conda.anaconda.org/bioconda/noarch/fastqc-0.13.0-hdfd78af_0.conda#174cc3aad0ac0fa338a2e1e7aa3154bb
 https://conda.anaconda.org/conda-forge/osx-arm64/perl-5.44.0-1_hb001647_perl5.conda#1aeb812a899f42e319056e1bafafbd33
 https://conda.anaconda.org/bioconda/osx-arm64/bwa-0.7.19-hba9b596_1.tar.bz2#c2848ab95948fc490363b9d540caf4dc

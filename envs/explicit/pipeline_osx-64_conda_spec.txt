@@ -167,6 +167,10 @@ https://conda.anaconda.org/conda-forge/noarch/aiosignal-1.4.0-pyhd8ed1ab_0.conda
 https://conda.anaconda.org/conda-forge/noarch/aiohappyeyeballs-2.7.1-pyhd8ed1ab_0.conda#e51e09bf3b91c62b7461a9f94e92c2c9
 https://conda.anaconda.org/conda-forge/osx-64/aiohttp-3.14.5-py313h43809cc_0.conda#9c68c1caa74c977607a62340c2030632
 https://conda.anaconda.org/conda-forge/noarch/papermill-2.7.0-pyhd8ed1ab_0.conda#ca833247b8b88d1d15eb57d031467795
+https://conda.anaconda.org/conda-forge/osx-64/openjdk-25.0.2-h3ebe2c2_26.conda#7189e6da02ba66eec990c7108aaf249c
+https://conda.anaconda.org/conda-forge/osx-64/curl-8.23.0-h5318221_0.conda#e9539fc03332e9e4b058b72aadf10a62
+https://conda.anaconda.org/conda-forge/osx-64/coreutils-9.12-had63097_0.conda#422ed2c78561ea65c449dded4ec57076
+https://conda.anaconda.org/bioconda/noarch/nextflow-26.10.6-h2a3209d_0.conda#e50a0a6e1a22ddfb7086add971eed6cf
 https://conda.anaconda.org/conda-forge/noarch/typeguard-4.6.0-pyhcf101f3_0.conda#a61716f1640d9986d5d6de1c4d140b42
 https://conda.anaconda.org/conda-forge/osx-64/regex-2026.9.29-py313h71da6e4_0.conda#1fa3997a0ce1a0a3d12425d11af40dbf
 https://conda.anaconda.org/conda-forge/osx-64/tiktoken-0.14.0-py313hc4e838c_1.conda#03c8a640a1e3ade6bbfdc14f9b5397d6
@@ -330,7 +334,6 @@ https://conda.anaconda.org/conda-forge/osx-64/xz-tools-5.8.3-hbb4bfdb_1.conda#b1
 https://conda.anaconda.org/conda-forge/osx-64/xz-gpl-tools-5.8.3-h6a5a847_1.conda#cf4fca501e998d7253668639ffec24e1
 https://conda.anaconda.org/conda-forge/osx-64/liblzma-devel-5.8.3-hbb4bfdb_1.conda#45d82d23fd5fbf413cbee1c2fc3ef4eb
 https://conda.anaconda.org/conda-forge/osx-64/xz-5.8.3-h6a5a847_1.conda#60370353b407dd3cc858eabd04e88384
-https://conda.anaconda.org/conda-forge/osx-64/openjdk-25.0.2-h3ebe2c2_26.conda#7189e6da02ba66eec990c7108aaf249c
 https://conda.anaconda.org/bioconda/noarch/fastqc-0.13.0-hdfd78af_0.conda#174cc3aad0ac0fa338a2e1e7aa3154bb
 https://conda.anaconda.org/conda-forge/osx-64/perl-5.44.0-1_hd115831_perl5.conda#4f4ed799335bff8778b628f0a1d27b3a
 https://conda.anaconda.org/bioconda/osx-64/bwa-0.7.19-h7f84b70_1.tar.bz2#8573b3ee1418539b3052f8f7063c18ff

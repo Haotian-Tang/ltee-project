@@ -1,4 +1,6 @@
-# Snakemake workflow
+# Workflows
+
+## Snakemake
 
 Run from the project root:
 
@@ -28,3 +30,11 @@ Data Carpentry attribution is retained in the Snakefile.
 `pixi run run-snakemake` verifies raw data and runs the workflow;
 `pixi run reproduce` then renders the report. `pixi run compare-to-shell`
 regenerates the shell baseline separately and compares every VCF record.
+
+## Nextflow
+
+`nextflow/main.nf` implements the same pipeline using processes and channels,
+with the same `config/config.yaml`. Run `pixi run run-nextflow`, or use
+`pixi run compare-workflows` to check all VCF records against Snakemake.
+`reproduce` continues to use Snakemake. Results are copied to `results/nextflow/`.
+See `nextflow/README.md` for resume, threshold and launch-directory checks.
