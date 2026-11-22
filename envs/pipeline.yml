@@ -12,6 +12,7 @@ dependencies:
 - snakemake >=9.27.2,<10
 - graphviz >=14.1.2,<15
 - snakefmt >=2.1.0,<3
+- nextflow >=26.10.6,<27
 - python 3.13.*
 - quarto >=1.9
 - jupyterlab >=4
