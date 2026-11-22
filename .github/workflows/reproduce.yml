@@ -28,11 +28,17 @@ jobs:
       - name: Check Snakefile formatting
         run: pixi run -e pipeline snakefmt --check workflow/Snakefile
 
+      - name: Lint the Nextflow pipeline
+        run: pixi run -e pipeline nextflow lint workflow/nextflow/
+
       - name: Rebuild every result from raw data
         run: pixi run reproduce
 
       - name: Compare Snakemake with the shell baseline
         run: pixi run compare-to-shell
+
+      - name: Compare Nextflow with Snakemake
+        run: pixi run compare-workflows
 
       - name: Committed files must not change when the analysis runs
         run: git status --porcelain && git diff --exit-code

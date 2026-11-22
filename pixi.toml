@@ -47,5 +47,8 @@ variant-calling = { cmd = "bash scripts/run_variant_calling.sh 2 results/shell-s
 run-snakemake = { cmd = "snakemake --cores 4", depends-on = ["download"], description = "Run the Snakemake workflow" }
 compare-to-shell = { cmd = "python scripts/compare_vcfs.py results/shell-script/vcf results/vcf", depends-on = ["variant-calling", "run-snakemake"], description = "Compare all variant records from the shell and Snakemake" }
 
+run-nextflow = { cmd = "nextflow run workflow/nextflow/main.nf -params-file config/config.yaml -with-report results/nextflow/execution-report.html", depends-on = ["download"], description = "Run Nextflow and write its execution report" }
+compare-workflows = { cmd = "python scripts/compare_vcfs.py results/vcf results/nextflow/vcf", depends-on = ["run-snakemake", "run-nextflow"], description = "Compare complete Snakemake and Nextflow variant records" }
+
 [environments]
 pipeline = ["pipeline"]

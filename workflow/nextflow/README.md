@@ -24,3 +24,19 @@ execution report and cleanup of old runs passed; published outputs remained.
 
 From [CBIO7501 lesson 10](https://khanlab.bio/cbio7501-f26/pages/10-nextflow.html).
 Data Carpentry attribution is retained in `main.nf`.
+
+`pixi run run-nextflow` verifies data and also writes
+`results/nextflow/execution-report.html`. `pixi run compare-workflows` runs
+both workflows and compares full variant records; CI runs this cross-check.
+The task starts a new run; use the explicit Nextflow command with `-resume`
+when you want to reuse existing tasks.
+
+The separate `~/cbio7501/nextflow-practice` toy passed its two-task resume
+check. The pinned `nf-core/demo` 1.2.0 test also completed successfully with
+Docker's official `test,docker,emulate_amd64` profiles. Its results are in
+`~/cbio7501/nf-core-demo-results`, outside this project. For real analyses,
+check nf-core for an existing pipeline and pin its release; keep this
+small LTEE comparison as the course workflow.
+
+Native macOS omits CPU/memory task metrics without per-process containers;
+the local execution report still provides task status and timing.
