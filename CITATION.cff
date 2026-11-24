@@ -1,13 +1,53 @@
 cff-version: 1.2.0
-message: "If you use this work, please cite it as below."
+message: "If you reuse this workflow, please cite this project and the original data publication."
 title: "LTEE variant calling"
-abstract: "Variant calling on three E. coli samples from the Long-Term Evolution Experiment"
+abstract: "Reproducible variant calling on three E. coli clones from the Long-Term Evolution Experiment, with depth-filter sensitivity and a cross-check between Snakemake and Nextflow."
 type: software
 authors:
   - given-names: "Haotian"
     family-names: "Tang"
     email: "haotian.tang@mbzuai.ac.ae"
 repository-code: "https://github.com/Haotian-Tang/ltee-project"
+url: "https://github.com/Haotian-Tang/ltee-project"
 license: MIT
 version: 0.1.0
-date-released: "2026-10-26"
+keywords:
+  - reproducibility
+  - variant calling
+  - Long-Term Evolution Experiment
+  - Snakemake
+  - Nextflow
+references:
+  - type: article
+    title: "Tempo and mode of genome evolution in a 50,000-generation experiment"
+    authors:
+      - family-names: "Tenaillon"
+        given-names: "Olivier"
+      - family-names: "Barrick"
+        given-names: "Jeffrey E."
+      - family-names: "Ribeck"
+        given-names: "Noah"
+      - family-names: "Deatherage"
+        given-names: "Daniel E."
+      - family-names: "Blanchard"
+        given-names: "Jeffrey L."
+      - family-names: "Dasgupta"
+        given-names: "Aurko"
+      - family-names: "Wu"
+        given-names: "Gabriel C."
+      - family-names: "Wielgoss"
+        given-names: "Sébastien"
+      - family-names: "Cruveiller"
+        given-names: "Stéphane"
+      - family-names: "Médigue"
+        given-names: "Claudine"
+      - family-names: "Schneider"
+        given-names: "Dominique"
+      - family-names: "Lenski"
+        given-names: "Richard E."
+    journal: "Nature"
+    volume: 536
+    start: 165
+    end: 170
+    year: 2016
+    doi: "10.1038/nature18959"
