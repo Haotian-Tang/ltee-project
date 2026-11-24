@@ -97,3 +97,23 @@ The imported Pixi practice workspace remains available separately.
 The project manifest, lock and pipeline/download scripts were checked against
 the lesson 5 baseline and are unchanged. No data analysis was added or rerun
 locally for this comparison. Installed environments are not committed.
+
+## 2026-11-24 - Documentation and citation
+
+Completed [lesson 11](https://khanlab.bio/cbio7501-f26/pages/11-documentation.html),
+source revision `78888ac4c7b5af6d67c9796762ebe67acf5c5cd7`. The README now answers
+the seven reader questions and links the structure, hardware and license
+records. A forced 49-job, four-core Snakemake rebuild completed in 35.70 s,
+with OS-reported maximum RSS 401,620,992 bytes; `docs/hardware.md` records
+the scope and disk measurements. The rebuilt calls retain 10, 25 and 775
+variants for the 5,000-, 15,000- and 50,000-generation clones.
+
+The completed CFF validates with cffconvert 2.0.0; APA-like and BibTeX exports
+were generated. A temporary copy with a deliberately malformed ORCID was
+rejected by its schema, then the unchanged project file validated again.
+The example ID belongs only to that disposable fixture; no author ORCID is
+claimed. CI now validates the real CFF. Contributing instructions and the
+Contributor Covenant 3.0 contact are present. The actual installed explicit
+packages in both environments are recorded in `docs/software-versions.txt`
+with the lock checksum, and the workflow DOT/SVG are generated from the
+current Snakefile. No analysis dependency, configuration or bioinformatics workflow changed.

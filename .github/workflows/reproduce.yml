@@ -25,6 +25,9 @@ jobs:
           pixi-version: v0.83.0
           locked: true   # fail if pixi.lock does not match pixi.toml
 
+      - name: Validate citation metadata
+        run: pixi exec --spec 'python=3.13.*' --spec 'cffconvert=2.0.0' -- cffconvert --validate -i CITATION.cff
+
       - name: Check Snakefile formatting
         run: pixi run -e pipeline snakefmt --check workflow/Snakefile
 
