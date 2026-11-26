@@ -50,6 +50,19 @@ For [Conda/Mamba exports](envs/README.md) or the [lock-based container](containe
 follow those linked instructions. The pinned lesson-08 image predates the
 workflow managers; rebuilding the Dockerfile uses the current lock.
 
+### Check automated reproduction
+
+Open the [Reproduce runs](https://github.com/Haotian-Tang/ltee-project/actions/workflows/reproduce.yml)
+and choose the run whose commit matches `git rev-parse --short HEAD`.
+Its conclusion should be **Success**. The README badge shows the latest
+branch status, so check the matching commit when reviewing an older clone.
+
+The run validates the citation, checks workflow formatting, rebuilds the
+report and compares the complete VCF records across all three workflows.
+For the generated report and results, download the **results** artifact
+from that run; artifacts are retained for seven days. The separate
+**Container** workflow checks the container build and variant calls.
+
 ## Hardware
 
 No GPU is needed. A practical budget for the native workflows is **10 GB free

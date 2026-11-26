@@ -117,3 +117,20 @@ Contributor Covenant 3.0 contact are present. The actual installed explicit
 packages in both environments are recorded in `docs/software-versions.txt`
 with the lock checksum, and the workflow DOT/SVG are generated from the
 current Snakefile. No analysis dependency, configuration or bioinformatics workflow changed.
+
+## 2026-11-26 - Peer reproduction follow-up
+
+[Maitha's reproduction report](https://github.com/Haotian-Tang/ltee-project/issues/11)
+checks installation, data integrity, execution, expected results and reuse.
+The feedback prompted a check of the automated reproduction status.
+Both the [Reproduce run](https://github.com/Haotian-Tang/ltee-project/actions/runs/45635633307)
+and [Container run](https://github.com/Haotian-Tang/ltee-project/actions/runs/45635633323)
+for `3dea2457c8261b12a747606d04cd741f387609db` had succeeded.
+The README now explains how to find the check for the reviewed commit and
+retrieve its result artifact.
+
+Local verification: `pixi install --locked --all` and `pixi run reproduce`
+succeeded. Snakemake reused up-to-date outputs; Quarto executed the report
+again. Variant counts remain 10, 25 and 775, and complete VCF records match
+across the existing Snakemake, shell and Nextflow outputs. This follow-up
+changes documentation only.
